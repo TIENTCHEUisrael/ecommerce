@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>La boutique de Leicanor1</title>
+</head>
+<body>
+<h1>
+    <a href="{% url 'index'%}">La boutique de Leicanor</a>
+</h1>
+
+{% if user.is_authenticated %}
+<a href="{% url 'signup' %}">S'inscrire</a>
+{% endif %}
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
