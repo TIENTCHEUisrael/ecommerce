@@ -6,3 +6,4 @@ from django.db import models
 
 class Shopper(AbstractUser):
     pass
+

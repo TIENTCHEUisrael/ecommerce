@@ -64,3 +64,8 @@ class Cart(models.Model):
 
         self.orders.clear()
         super().delete(*args, **kwargs)
+
+
+class Bibliography(models.Model):
+    pass
+
