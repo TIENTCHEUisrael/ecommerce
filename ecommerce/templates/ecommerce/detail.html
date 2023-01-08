@@ -7,4 +7,11 @@
 <img src="{{ product.thumbail.url }}" alt=" {{ product.name }}"style="height:150px;width:150px;">
 <p>{{ product.description }}</p>
 <p>{{ product.stock }}</p>
+{% if user.is_authenticated %}
+<p>
+    <a href="{% url 'add-to-cart' product.slug %}">
+        Ajouter l'article dans le pannier
+    </a>
+</p>
+{% endif %}
 {% endblock %}

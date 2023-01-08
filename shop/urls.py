@@ -17,12 +17,17 @@ from shop import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from ecommerce.views import index,productdetail
-from accounts.views import signup
+from ecommerce.views import index, productdetail, add_to_cart, cart, delete_cart
+from accounts.views import signup, logout_user, login_user
 
 urlpatterns = [
-    path('',index,name='index'),
-    path('admin/', admin.site.urls),
-    path('signup/', signup,name="signup"),
-    path('product/<str:slug>/', productdetail,name="product"),
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+                  path('', index, name='index'),
+                  path('admin/', admin.site.urls),
+                  path('signup/', signup, name="signup"),
+                  path('login/', login_user, name="login"),
+                  path('cart/', cart, name="cart"),
+                  path('cart/delete/', delete_cart, name="delete_cart"),
+                  path('logout/', logout_user, name="logout"),
+                  path('product/<str:slug>/', productdetail, name="product"),
+                  path('product/<str:slug>/add-to-cart/', add_to_cart, name="add-to-cart"),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
