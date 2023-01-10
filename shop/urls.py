@@ -18,13 +18,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from ecommerce.views import index, productdetail, add_to_cart, cart, delete_cart
-from accounts.views import signup, logout_user, login_user
+from accounts.views import signup, logout_user, login_user, biblio
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
                   path('', index, name='index'),
                   path('admin/', admin.site.urls),
                   path('signup/', signup, name="signup"),
                   path('login/', login_user, name="login"),
+                  path('biblio/', biblio, name="biblio"),
                   path('chat/', include('Chat.urls')),
                   path('cart/', cart, name="cart"),
                   path('cart/delete/', delete_cart, name="delete_cart"),
@@ -32,3 +34,4 @@ urlpatterns = [
                   path('product/<str:slug>/', productdetail, name="product"),
                   path('product/<str:slug>/add-to-cart/', add_to_cart, name="add-to-cart"),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += staticfiles_urlpatterns()

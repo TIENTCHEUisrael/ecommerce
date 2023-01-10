@@ -5,6 +5,9 @@ User = get_user_model()
 
 
 # Create your views here.
+def biblio(request):
+    return render(request, 'accounts/biblio.html')
+
 
 def signup(request):
     if request.method == "POST":
@@ -27,10 +30,10 @@ def login_user(request):
         # connecter l'utilisateur
         username = request.POST.get("username")
         password = request.POST.get("password")
-        user = authenticate(username=username,password=password)
+        user = authenticate(username=username, password=password)
 
         if user:
-            login(request,user)
+            login(request, user)
             return redirect('index')
 
-    return render(request,'accounts/login.html')
+    return render(request, 'accounts/login.html')

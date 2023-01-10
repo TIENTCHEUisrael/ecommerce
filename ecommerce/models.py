@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
-
 from shop.settings import AUTH_USER_MODEL
 
 
@@ -58,14 +57,17 @@ class Cart(models.Model):
 
     def delete(self, *args, **kwargs):
         for order in self.orders.all():
-            order.ordered=True
-            order.ordered_date=timezone.now()
+            order.ordered = True
+            order.ordered_date = timezone.now()
             order.save()
 
         self.orders.clear()
         super().delete(*args, **kwargs)
 
 
-class Bibliography(models.Model):
-    pass
+class Chat(models.Model):
+    user = models.ForeignKey(AUTH_USER_MODEL, on_delete=models.CASCADE)
+    value = models.TextField(max_length=10000)
+    date = models.DateTimeField(default=timezone.now, blank=True)
+
 

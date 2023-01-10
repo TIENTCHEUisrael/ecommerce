@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
-
 {% block content %}
 {% for order in orders  %}
-    <h2>{{ order.product.name }}</h2>
-    <img src="{{ order.product.thumbail.url }}" alt="{{ order.product.name }}"style="height:150px;width:100px;">
-    <p>{{ order.quantity }} dans le panier</p>
+ <div class="card">
+   <h2>{{ order.product.name }}</h2>
+  <img src="{{ order.product.thumbail.url }}" alt="{{ order.product.name }}" style="width:100%;height:150px;">
+  <p>{{ order.quantity }} dans le panier</p>
+  <p class="pp">({{ order.product.stock }}) Stockée</p>
+</div>
 {% endfor %}
-<a href="{% url 'delete_cart' %}">Supprimer le pannier</a>
+    <center><button class="but"><a href="{% url 'delete_cart' %}">Supprimer le pannier</a></button></center>
 {% endblock %}
+

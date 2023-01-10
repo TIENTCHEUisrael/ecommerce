@@ -3,8 +3,9 @@
     padding: 0;
     list-style: none;
     text-decoration: none;
-    font-family:"Google Sans Regular";
+    font-family:'Poppins',sans-serif;
     box-sizing: border-box;
+    while:100%;
 }
 
 body{

@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <title>La boutique de L'artiste</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="{% static 'css/biblio.css' %}">
     <style>
     *{
         margin: 0;
@@ -123,10 +129,10 @@
     <nav class="nav-bar">
         <ul>
             <li>
-                <a href="" class="active">Home</a>
+                <a href="{% url 'index'%}" class="active">Home</a>
             </li>
             <li>
-                <a href="">Chat(1)</a>
+                <a href="{% url 'home' %}">Chat(1)</a>
             </li>
             {% if user.is_authenticated %}
             <li>
@@ -146,7 +152,7 @@
             </li>
             {% endif %}
             <li>
-                <a href="">{{ user.username }}</a>
+                <a href="{% url 'biblio' %}">{{ user.username }}</a>
             </li>
         </ul>
     </nav>

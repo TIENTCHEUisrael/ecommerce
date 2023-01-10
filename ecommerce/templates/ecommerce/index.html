@@ -2,9 +2,25 @@
 
 {% block content %}
 
-{% for product in products %}
-    <h2>{{ product.name }}</h2>
-    <img src="{{ product.thumbail.url }}" alt="{{ product.name }}" style="max-width:250px;height:100px;">
-    <a href="{{ product.get_absolute_url }}">Voir larticle</a>
-{% endfor %}
+<div class="container3">
+
+
+    <ul>{% for product in products %}
+        <li>
+            <div class="carte">
+      <p class="sneakers">{{ product.name }}</p>
+      <img src="{{ product.thumbail.url }}" alt="{{ product.name }}" class="modele">
+      <div class="detail">
+        <h2>{{ product.price}} Euro</h2>
+        <p>{{product.description}}</p>
+        <a href="{{ product.get_absolute_url }}"> voir article</a>
+      </div>
+    </div>
+        </li>{% endfor %}
+    </ul>
+
+
+
+  </div>
 {% endblock %}
+

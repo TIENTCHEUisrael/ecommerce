@@ -1,16 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Connexion</h1>
-    <form action="" method="POST">
+<div class="center">
+    <h1>Login</h1>
+    <form method="POST">
         {% csrf_token %}
-        <p>
-            <label for="username">Nom d'utilisateur</label>
-            <input type="text" id="username" name="username">
-        </p>
-        <p>
-            <label for="password">Mot de passe</label>
-            <input type="password" id="password" name="password">
-        </p>
-        <button type="submit">Connexion</button>
+        <div class="txt_field">
+            <input type="text" id="username" name="username" >
+            <span></span>
+            <label for="username">Username</label>
+        </div>
+         <div class="txt_field">
+            <input type="password" id="password" name="password" >
+             <span></span>
+            <label for="password">Password</label>
+        </div>
+        <div class="pass">Forgot password?</div>
+        <input type="submit" value="Connexion">
+        <div class="signup_link">
+            Not a member? <a href="{% url 'signup' %}">Signup</a>
+        </div>
     </form>
+</div>
 {% endblock %}
